@@ -3,6 +3,9 @@ import LockOpenIcon from '@mui/icons-material/LockOpen';
 import { EMInput } from './EMInput.tsx';
 import GenerateModule from './GenerateModule.tsx';
 import LockIcon from '@mui/icons-material/Lock';
+import { HiLockOpen, HiLockClosed } from "react-icons/hi2";
+// import { HiLockClosed } from "react-icons/hi2";
+
 
 export const ExperimentalModuleCart = ({ callback, createModule, experiments, id }) => {
     const [isOpen, setIsOpen] = React.useState(false)
@@ -41,7 +44,8 @@ export const ExperimentalModuleCart = ({ callback, createModule, experiments, id
                 onClick={() => setIsOpen(!isOpen)}>
                 <h3 className='title' style={{ color: isOpen ? `white` : `rgba(117, 117, 117, 1)` }}>{createModule ? 'Create Experiment Module' : `Experiment Module`}</h3>
                 {/* {} */}
-                {isLock ? <LockIcon className="flipped-icon"/> : isOpen && <LockOpenIcon className="flipped-icon" />}
+
+                {isLock ? <HiLockClosed className="flipped-icon" /> : isOpen && <HiLockOpen className="flipped-icon" />}
             </div>
             {/* </summary> */}
             {isOpen &&
@@ -147,19 +151,21 @@ export const ExperimentalModuleCart = ({ callback, createModule, experiments, id
                                             setmoduleName('')
                                         }}>Cancel</p>
                                         <p className='input_title footer_buttons' onClick={() => {
-                                            experimentalModules.push(moduleName)
-                                            setexperimentalModules(experimentalModules)
-                                            setmoduleName('')
-                                            setaddIteration(false)
-                                            if (id) {
-                                                callback({ [id]: experimentalModules })
-                                            } else {
-                                                callback({ [Math.random().toString(36).substr(2, 10)]: experimentalModules })
-                                            }
-                                            if (createModule) {
-                                                setaddIteration(true)
-                                                setexperimentalModules([])
+                                            if (moduleName.length > 0) {
 
+                                                experimentalModules.push(moduleName)
+                                                setexperimentalModules(experimentalModules)
+                                                setmoduleName('')
+                                                setaddIteration(false)
+                                                if (id) {
+                                                    callback({ [id]: experimentalModules })
+                                                } else {
+                                                    callback({ [Math.random().toString(36).substr(2, 10)]: experimentalModules })
+                                                }
+                                                if (createModule) {
+                                                    setaddIteration(true)
+                                                    setexperimentalModules([])
+                                                }
                                             }
                                         }}>Done</p>
                                     </div>

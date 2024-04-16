@@ -11,7 +11,7 @@ export const GenerateModule = ({ removeCallBack, callBack }) => {
     };
 
     return (
-        <div style={{ width: `80%`, marginTop: `16px`, marginBottom: `16px` }}>
+        <div style={{ width: `85%`, marginTop: `16px`, marginBottom: `16px` }}>
             <p className='input_title' style={{ color: `white`, }}>{selectedName ? selectedName : `Iteration title`}</p>
             <div className='generate_module_buttons_container'>
                 <div className={`generate_module_buttons ${isActive == 'short' && 'activeButton'}`}

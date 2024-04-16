@@ -1,27 +1,27 @@
 export const shortNames = [
-    "ReactProbe",
-    "ReactJourney",
-    "ReactInnovateLab",
-    "ReactPlayground",
-    "ReactPilot",
-    "ReactVenture",
-    "ReactDiscovery",
-    "ReactTestZone",
-    "ReactExploration",
-    "ReactInnovationHub"
+    "Probe",
+    "Journey",
+    "InnovateLab",
+    "Playground",
+    "Pilot",
+    "Venture",
+    "Discovery",
+    "TestZone",
+    "Exploration",
+    "InnovationHub"
 ];
 
 export const mediumNames = [
-    "ReactInsight",
-    "ReactNavigator",
-    "ReactVoyage",
-    "ReactPathfinder",
-    "ReactExpedition",
-    "ReactOdyssey",
-    "ReactDiscoveryLab",
-    "ReactQuest",
-    "ReactExplora",
-    "ReactExploratory"
+    "React Insight",
+    "React Navigator",
+    "React Voyage",
+    "React Pathfinder",
+    "React Expedition",
+    "React Odyssey",
+    "React DiscoveryLab",
+    "React Quest",
+    "React Explora",
+    "React Exploratory"
 ];
 
 export const longNames = [
