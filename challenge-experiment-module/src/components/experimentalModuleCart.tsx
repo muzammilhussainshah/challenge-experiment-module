@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import LockOpenIcon from '@mui/icons-material/LockOpen';
 import { EMInput } from './EMInput.tsx';
 import GenerateModule from './GenerateModule.tsx';
+import LockIcon from '@mui/icons-material/Lock';
 
 export const ExperimentalModuleCart = ({ callback, createModule, experiments, id }) => {
     const [isOpen, setIsOpen] = React.useState(false)
@@ -39,7 +40,8 @@ export const ExperimentalModuleCart = ({ callback, createModule, experiments, id
                 }}
                 onClick={() => setIsOpen(!isOpen)}>
                 <h3 className='title' style={{ color: isOpen ? `white` : `rgba(117, 117, 117, 1)` }}>{createModule ? 'Create Experiment Module' : `Experiment Module`}</h3>
-                {isOpen && <LockOpenIcon className="flipped-icon" />}
+                {/* {} */}
+                {isLock ? <LockIcon className="flipped-icon"/> : isOpen && <LockOpenIcon className="flipped-icon" />}
             </div>
             {/* </summary> */}
             {isOpen &&
