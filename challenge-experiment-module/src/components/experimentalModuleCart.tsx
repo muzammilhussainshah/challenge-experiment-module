@@ -1,18 +1,24 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import LockOpenIcon from '@mui/icons-material/LockOpen';
 import { EMInput } from './EMInput.tsx';
 import GenerateModule from './GenerateModule.tsx';
 
-export const ExperimentalModuleCart = () => {
+export const ExperimentalModuleCart = ({ callback, createModule, experiments, id }) => {
     const [isOpen, setIsOpen] = React.useState(false)
     const [moduleName, setmoduleName] = React.useState<string>('')
-    const [addIteration, setaddIteration] = React.useState<boolean>(true)
+    const [addIteration, setaddIteration] = React.useState<boolean>(createModule ? true : false)
     const [generateOne, setgenerateOne] = React.useState<boolean>(false)
     const [experimentalModules, setexperimentalModules] = React.useState<any>([])
+
     const handleInputChange = (event) => {
         setmoduleName(event.target.value);
     };
 
+    useEffect(() => {
+        if (experiments?.length > 0) {
+            setexperimentalModules([...experiments])
+        }
+    }, [experiments])
 
     return (
         <div className="container" >
@@ -26,7 +32,7 @@ export const ExperimentalModuleCart = () => {
                     borderBottomRightRadius: !isOpen ? `10px` : 0,
                 }}
                 onClick={() => setIsOpen(!isOpen)}>
-                <h3 className='title' style={{ color: isOpen ? `white` : `rgba(117, 117, 117, 1)` }}>Experiment Module</h3>
+                <h3 className='title' style={{ color: isOpen ? `white` : `rgba(117, 117, 117, 1)` }}>{createModule ? 'Create Experiment Module' : `Experiment Module`}</h3>
                 {isOpen && <LockOpenIcon className="flipped-icon" />}
             </div>
             {/* </summary> */}
@@ -49,9 +55,20 @@ export const ExperimentalModuleCart = () => {
                                     callBack={(value) => {
                                         experimentalModules.push(value)
                                         setexperimentalModules(experimentalModules)
+                                        if (id) {
+                                            callback({ [id]: experimentalModules })
+
+                                        } else {
+
+                                            callback({ [Math.random().toString(36).substr(2, 10)]: experimentalModules })
+                                        }
                                         setgenerateOne(false)
                                         setmoduleName('')
                                         setaddIteration(false)
+                                        if (createModule) {
+                                            setaddIteration(true)
+                                            setexperimentalModules([])
+                                        }
                                     }}
                                     removeCallBack={() => setgenerateOne(false)} />
                             }
@@ -78,7 +95,17 @@ export const ExperimentalModuleCart = () => {
                                                 setexperimentalModules(experimentalModules)
                                                 setmoduleName('')
                                                 setgenerateOne(false)
+                                                if (id) {
+                                                    callback({ [id]: experimentalModules })
+                                                } else {
+                                                    callback({ [Math.random().toString(36).substr(2, 10)]: experimentalModules })
+                                                }
                                                 setaddIteration(false)
+                                                if (createModule) {
+                                                    setaddIteration(true)
+                                                    setexperimentalModules([])
+
+                                                }
                                             }}
                                             removeCallBack={() => setgenerateOne(false)} />
                                     }
@@ -90,25 +117,40 @@ export const ExperimentalModuleCart = () => {
 
                     {!generateOne &&
                         <>
-                            <div className='prompt_container'>
-                                <p className='input_title'>To add a new iteration, start typing a<br /> prompt or <span className='under_line generate_button'
-                                    onClick={() => {
-                                        if (addIteration) {
-                                            setgenerateOne(true)
-                                        } else {
-                                            setaddIteration(true)
-                                            setgenerateOne(true)
-                                        }
-                                    }}>generate</span> one.</p>
-                            </div>
+                            {addIteration &&
+                                <div className='prompt_container'>
+                                    <p className='input_title'>To add a new iteration, start typing a<br /> prompt or <span className='under_line generate_button'
+                                        onClick={() => {
+                                            if (addIteration) {
+                                                setgenerateOne(true)
+                                            } else {
+                                                setaddIteration(true)
+                                                setgenerateOne(true)
+                                            }
+                                        }}>generate</span> one.</p>
+                                </div>
+                            }
                             {addIteration ?
                                 <div className='footer_buttons_container'>
-                                    <p className='input_title footer_buttons' onClick={() => setIsOpen(false)}>Cancel</p>
+                                    <p className='input_title footer_buttons' onClick={() => {
+                                        setaddIteration(false)
+                                        setmoduleName('')
+                                    }}>Cancel</p>
                                     <p className='input_title footer_buttons' onClick={() => {
                                         experimentalModules.push(moduleName)
                                         setexperimentalModules(experimentalModules)
                                         setmoduleName('')
                                         setaddIteration(false)
+                                        if (id) {
+                                            callback({ [id]: experimentalModules })
+                                        } else {
+                                            callback({ [Math.random().toString(36).substr(2, 10)]: experimentalModules })
+                                        }
+                                        if (createModule) {
+                                            setaddIteration(true)
+                                            setexperimentalModules([])
+
+                                        }
                                     }}>Done</p>
                                 </div>
                                 :

@@ -11,16 +11,53 @@ const colors = {
 }
 
 function App() {
-  const [isOpen, setIsOpen] = React.useState()
-  const [moduleName, setmoduleName] = React.useState('')
-  const [experimentalModules, setexperimentalModules] = React.useState([])
-  const handleInputChange = (event) => {
-    setmoduleName(event.target.value);
-  };
-  console.log(experimentalModules, 'experimentalModules')
+
+  const [experiments, setexperiments] = React.useState([])
+  // React.useEffect(() => {
+  //   localStorage.setItem('experiments', JSON.stringify(experiments));
+  //   console.log(experiments, 'experiments')
+  // }, [experiments])
+  // React.useEffect(() => {
+  //   const data = localStorage.getItem('experiments');
+  //   console.log(data, 'data')
+  // }, [])
   return (
     <div className="App">
-      <ExperimentalModuleCart />
+
+      <ExperimentalModuleCart
+        createModule
+        callback={(value) => {
+          const key = Object.keys(value)[0]; // Extracting the key from the object
+          let experimentsCopy = JSON.parse(JSON.stringify(experiments))
+          experimentsCopy.push(value)
+          setexperiments(experimentsCopy);
+        }}
+      />
+      {experiments.length > 0 && experiments.map((item) => {
+        return (
+          <>
+            <ExperimentalModuleCart
+              id={Object.keys(item)[0]}
+              experiments={item[Object.keys(item)[0]]}
+              callback={(value) => {
+                const key = Object.keys(value)[0]; // Extracting the key from the object
+                let experimentsCopy = JSON.parse(JSON.stringify(experiments))
+                let isAlreadyHaveIndex = experimentsCopy.findIndex((value) => Object.keys(value)[0] == key)
+                if (isAlreadyHaveIndex == -1) {
+                  experimentsCopy.push(value)
+                  setexperiments(experimentsCopy);
+                } else {
+                  experimentsCopy.splice(isAlreadyHaveIndex, 1, value)
+                  setexperiments(experimentsCopy);
+                }
+              }}
+            />
+          </>
+
+        )
+      })
+      }
+
     </div >
   );
 }
