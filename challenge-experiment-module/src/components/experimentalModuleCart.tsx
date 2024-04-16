@@ -143,11 +143,15 @@ export const ExperimentalModuleCart = ({ callback, createModule, experiments, id
                                 </div>
                             }
                             {
-
                                 addIteration ?
                                     <div className='footer_buttons_container'>
                                         <p className='input_title footer_buttons' onClick={() => {
-                                            setaddIteration(false)
+                                            if (experimentalModules.length == 0) {
+                                                setIsOpen(false)
+
+                                            } else {
+                                                setaddIteration(false)
+                                            }
                                             setmoduleName('')
                                         }}>Cancel</p>
                                         <p className='input_title footer_buttons' onClick={() => {
