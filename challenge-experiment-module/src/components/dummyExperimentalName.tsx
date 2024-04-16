@@ -25,14 +25,14 @@ export const mediumNames = [
 ];
 
 export const longNames = [
-    "React InnovationDiscoveryCenter",
-    "React ExperimentationHub",
-    "React ExploratoryDevelopmentLab",
-    "React InnovationDiscoveryZone",
-    "React ExperimentalDevelopmentHub",
-    "React InnovativeExplorationLab",
-    "React ExploratoryInnovationHub",
-    "React InnovativeDevelopmentZone",
-    "React ExperimentalInnovationLab",
-    "React ExplorationDevelopmentCenter"
+    "React Innovation Discovery Center",
+    "React Experimentation Hub",
+    "React Exploratory Development Lab",
+    "React Innovation Discovery Zone",
+    "React Experimental Development Hub",
+    "React Innovative Exploration Lab",
+    "React Exploratory Innovation Hub",
+    "React Innovative Development Zone",
+    "React Experimental Innovation Lab",
+    "React Exploration Development Center"
 ];
