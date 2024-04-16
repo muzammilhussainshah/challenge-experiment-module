@@ -3,11 +3,18 @@
 }
 
 .container {
-  width: 500px;
+  width: 600px;
+  border-radius: 10px;
+  align-self: center;
+  margin: auto;
+  box-shadow: 0px 0px 10px 4px rgba(0, 0, 0, 0.6);
+  /* overflow: hidden; */
+  /* width: 500px; */
 }
 
 .header {
   height: 50px;
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -34,11 +41,11 @@
 }
 
 body {
-  background-color: black;
+  background-color: white;
 }
 
 .title {
-  color: rgba(117, 117, 117, 1) !important;
+  color: rgba(117, 117, 117, 1)  ;
 }
 
 .flipped-icon {
@@ -48,7 +55,7 @@ body {
 
 .input_container {
   background-color: black;
-  height: 44px;
+  min-height: 44px;
   display: flex;
   align-items: center;
   width: 95%;
@@ -125,4 +132,50 @@ body {
   cursor: pointer;
   /* ; */
 
+}
+
+
+.generate_module_buttons {
+  height: 30px;
+  display: flex;
+  font-size: 13px;
+  justify-content: center;
+  /* margin: 10px 10px 0px 10px; */
+  padding: 0px 10px;
+  border-radius: 10px;
+  text-transform: uppercase;
+  align-items: center;
+
+  border: 1px solid rgba(117, 117, 117, 1);
+  color: rgba(117, 117, 117, 1);
+}
+
+.generate_module_buttons:hover {
+  cursor: pointer;
+}
+
+.generate_module_buttons_container {
+  display: flex;
+  gap: 10px;
+  border-bottom: 1px solid #191919;
+  padding: 10px;
+  flex-wrap: wrap;
+
+}
+
+.activeButton {
+
+  cursor: pointer;
+  border: 1px solid green;
+  color: green;
+}
+
+summary::marker {
+  content: '';
+}
+
+details {
+  overflow: hidden;
+  border-radius: 10px;
+  /* overflow: hidden; */
 }
