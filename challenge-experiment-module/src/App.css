@@ -1,38 +1,121 @@
 .App {
-  text-align: center;
+  margin: 20px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.container {
+  width: 500px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.header {
+  height: 50px;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: space-between;
+  padding: 0 20px;
+  /* border-radius: 10px; */
+  /* border-top-left-radius: 10px; */
+  /* border-top-right-radius: 10px; */
+  background-color: rgba(25, 25, 25, 1);
+}
+
+.header h3 {
+  color: #000;
+  /* Change color dynamically with JavaScript or React state */
+}
+
+.content {
+  /* height: 200px; */
+  background-color: rgba(25, 25, 25, 1);
+  width: 100%;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  /* border-radius: 10px; */
+  padding: 16px 0;
+}
+
+body {
+  background-color: black;
+}
+
+.title {
+  color: rgba(117, 117, 117, 1) !important;
+}
+
+.flipped-icon {
+  color: rgba(117, 117, 117, 1) !important;
+  transform: scaleX(-1);
+}
+
+.input_container {
+  background-color: black;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  width: 95%;
+  /* padding: 0 16px; */
+
+  border-radius: 10px;
+  margin: auto;
+}
+
+.input_title {
+  font-size: 16px;
+  margin: 0 16px;
+
+  color: rgba(117, 117, 117, 1);
+  background-color: transparent;
+}
+
+.custom-input::placeholder {
+  color: #999;
+  font-size: 16px;
+  margin: 0 16px;
+  color: rgba(117, 117, 117, 1);
+
+  /* Your desired placeholder color */
+}
+
+.custom-input:focus {
+  outline: none;
+  /* Remove the outline when input is focused */
+  /* background-color: red; */
+  border-bottom: none;
+  /* Remove bottom border when input is focused */
+}
+
+.custom-input {
   color: white;
+  background: transparent;
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: 80%;
+  /* background-color: red; */
+  /* border-bottom: 1px solid white; */
+  /* Add bottom border */
 }
 
-.App-link {
-  color: #61dafb;
+.under_line {
+  text-decoration: underline;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.prompt_container {
+  background-color: black;
+  display: flex;
+  padding: 16px 0;
+  align-items: center;
+  width: 95%;
+  border-radius: 10px;
+  margin: 16px auto;
+}
+
+.footer_buttons_container {
+  display: flex;
+  justify-content: end;
+  font-weight: 700;
+}
+
+.footer_buttons:hover {
+  color: white;
+  cursor: pointer;
 }
