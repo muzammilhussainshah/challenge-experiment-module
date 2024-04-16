@@ -52,10 +52,8 @@ body {
   display: flex;
   align-items: center;
   width: 95%;
-  /* padding: 0 16px; */
-
   border-radius: 10px;
-  margin: auto;
+  margin: 0px auto 5px auto;
 }
 
 .input_title {
@@ -87,9 +85,11 @@ body {
   color: white;
   background: transparent;
   border: none;
-  margin: 0;
+  /* margin: 0; */
+  margin: 0 16px;
+
   padding: 0;
-  width: 80%;
+  width: 75%;
   /* background-color: red; */
   /* border-bottom: 1px solid white; */
   /* Add bottom border */
@@ -112,6 +112,7 @@ body {
 .footer_buttons_container {
   display: flex;
   justify-content: end;
+  text-transform: uppercase;
   font-weight: 700;
 }
 
