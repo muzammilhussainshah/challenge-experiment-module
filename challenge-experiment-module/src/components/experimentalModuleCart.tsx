@@ -9,7 +9,7 @@ export const ExperimentalModuleCart = ({ callback, createModule, experiments, id
     const [addIteration, setaddIteration] = React.useState<boolean>(createModule ? true : false)
     const [generateOne, setgenerateOne] = React.useState<boolean>(false)
     const [experimentalModules, setexperimentalModules] = React.useState<any>([])
-
+    const [isLock, setIsLock] = useState(false)
     const handleInputChange = (event) => {
         setmoduleName(event.target.value);
     };
@@ -19,6 +19,12 @@ export const ExperimentalModuleCart = ({ callback, createModule, experiments, id
             setexperimentalModules([...experiments])
         }
     }, [experiments])
+    useEffect(() => {
+        return () => {
+            setIsOpen(false)
+            // Anything in here is fired on component unmount.
+        }
+    }, [])
 
     return (
         <div className="container" >
@@ -130,39 +136,42 @@ export const ExperimentalModuleCart = ({ callback, createModule, experiments, id
                                         }}>generate</span> one.</p>
                                 </div>
                             }
-                            {addIteration ?
-                                <div className='footer_buttons_container'>
-                                    <p className='input_title footer_buttons' onClick={() => {
-                                        setaddIteration(false)
-                                        setmoduleName('')
-                                    }}>Cancel</p>
-                                    <p className='input_title footer_buttons' onClick={() => {
-                                        experimentalModules.push(moduleName)
-                                        setexperimentalModules(experimentalModules)
-                                        setmoduleName('')
-                                        setaddIteration(false)
-                                        if (id) {
-                                            callback({ [id]: experimentalModules })
-                                        } else {
-                                            callback({ [Math.random().toString(36).substr(2, 10)]: experimentalModules })
-                                        }
-                                        if (createModule) {
-                                            setaddIteration(true)
+                            {
+
+                                addIteration ?
+                                    <div className='footer_buttons_container'>
+                                        <p className='input_title footer_buttons' onClick={() => {
+                                            setaddIteration(false)
+                                            setmoduleName('')
+                                        }}>Cancel</p>
+                                        <p className='input_title footer_buttons' onClick={() => {
+                                            experimentalModules.push(moduleName)
+                                            setexperimentalModules(experimentalModules)
+                                            setmoduleName('')
+                                            setaddIteration(false)
+                                            if (id) {
+                                                callback({ [id]: experimentalModules })
+                                            } else {
+                                                callback({ [Math.random().toString(36).substr(2, 10)]: experimentalModules })
+                                            }
+                                            if (createModule) {
+                                                setaddIteration(true)
+                                                setexperimentalModules([])
+
+                                            }
+                                        }}>Done</p>
+                                    </div>
+                                    :
+                                    !isLock &&
+                                    <div className='footer_buttons_container'>
+                                        <p className='input_title footer_buttons' onClick={() => setIsLock(true)}>Lock</p>
+                                        <p className='input_title footer_buttons' onClick={() => {
                                             setexperimentalModules([])
+                                            setaddIteration(true)
 
-                                        }
-                                    }}>Done</p>
-                                </div>
-                                :
-                                <div className='footer_buttons_container'>
-                                    <p className='input_title footer_buttons'>Lock</p>
-                                    <p className='input_title footer_buttons' onClick={() => {
-                                        setexperimentalModules([])
-                                        setaddIteration(true)
-
-                                    }}>Reset</p>
-                                    <p className='input_title footer_buttons' onClick={() => setaddIteration(true)}>+ ADD iteration </p>
-                                </div>
+                                        }}>Reset</p>
+                                        <p className='input_title footer_buttons' onClick={() => setaddIteration(true)}>+ ADD iteration </p>
+                                    </div>
                             }
                         </>
                     }
