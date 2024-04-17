@@ -5,8 +5,6 @@ import App from './App'
 import path from 'path'
 import fs from 'fs'
 
-
-
 // MATCH SNAPSHOT
 test('renders App component', () => {
   const { container } = render(<App />)
