@@ -13,11 +13,12 @@ function Content({ contentProps }) {
 
     useEffect(() => {
         if (experiments?.length > 0) setexperimentalModules([...experiments])
+        else { setaddIteration(true) }
     }, [experiments])
 
     const FOOTER_BUTTON_WITHOUT_ITERATION = [
         { title: 'Lock', callback: () => setIsLock(true) },
-        { title: 'Reset', callback: () => handleReset(setexperimentalModules, setaddIteration) },
+        { title: 'Reset', callback: () => handleReset(handleResetProps) },
         { title: '+ ADD iteration ', callback: () => setaddIteration(true) }]
     const FOOTER_BUTTON_WITH_ITERATION = [
         { title: 'Cancel', callback: () => handleCancel(cancelProps) },
@@ -27,6 +28,7 @@ function Content({ contentProps }) {
     const cancelProps = { experimentalModules, setIsOpen, setaddIteration, setmoduleName }
     const commonLogicProps = { experimentalModules, moduleName, setexperimentalModules, setmoduleName, setgenerateOne, callback, id, setaddIteration, createModule }
     const module_Body_Props = { handleGenerate, FOOTER_BUTTON_WITH_ITERATION, FOOTER_BUTTON_WITHOUT_ITERATION, addIteration, setgenerateOne, setaddIteration, isLock }
+    const handleResetProps = { callback, id, setexperimentalModules, setaddIteration }
 
     return (
         <div className="content">

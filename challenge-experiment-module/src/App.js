@@ -15,6 +15,7 @@ function App() {
       setExperiments(experimentsCopy)
     }
   }
+  console.log(experiments,'experiments')
 
   const handleCreateExperiment = (value) => setExperiments([...experiments, value])
 
