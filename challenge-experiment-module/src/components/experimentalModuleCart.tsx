@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { HiLockClosed, HiLockOpen } from 'react-icons/hi2'
 import Content from './content.tsx';
+import Summary from './Summary.tsx';
 
 export const ExperimentalModuleCart = ({
     callback,
@@ -19,20 +20,10 @@ export const ExperimentalModuleCart = ({
         id: experimentalModuleCartDataProps?.id,
         experiments: experimentalModuleCartDataProps?.experiments,
     }
+    const summaryProps = { setIsOpen, isOpen, createModule, isLock, }
     return (
         <div className="container" >
-            <div
-                className="header"
-                style={{ borderBottomLeftRadius: !isOpen ? `10px` : 0, borderBottomRightRadius: !isOpen ? `10px` : 0, }}
-                onClick={() => setIsOpen(!isOpen)}>
-                <h3
-                    className='title'
-                    style={{ color: isOpen ? `white` : `rgba(117, 117, 117, 1)` }}>
-                    {createModule ? 'Create Experiment Module' : `Experiment Module`}
-                </h3>
-                {isLock ? <HiLockClosed className="flipped-icon" />
-                    : isOpen && <HiLockOpen className="flipped-icon" />}
-            </div>
+            <Summary summaryProps={summaryProps} />
             {isOpen && <Content contentProps={contentProps} />}
         </div >
     )

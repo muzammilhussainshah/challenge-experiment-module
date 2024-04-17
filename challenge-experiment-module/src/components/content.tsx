@@ -21,7 +21,7 @@ function Content({ contentProps }) {
         if (experiments?.length > 0) setexperimentalModules([...experiments])
         else { setaddIteration(true) }
     }, [experiments])
-    
+
     const FOOTER_BUTTON_WITHOUT_ITERATION = [
         { title: 'Lock', callback: () => setIsLock(true) },
         { title: 'Reset', callback: () => handleReset(handleResetProps) },
@@ -45,7 +45,7 @@ function Content({ contentProps }) {
         addIteration, setgenerateOne, setaddIteration, isLock
     }
     const handleResetProps = { callback, id, setexperimentalModules, setaddIteration }
-    
+
     return (
         <div className="content">
             {experimentalModules.map((item, index) => <EMInput item={item} index={index} />)}
