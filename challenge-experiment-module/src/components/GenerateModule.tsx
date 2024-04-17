@@ -5,10 +5,7 @@ export const GenerateModule = ({ removeCallBack, callBack }) => {
     const [isActive, setisActive] = useState('')
     const [selectedName, setSelectedName] = useState('');
 
-
-    const handleDoneClick = () => {
-        callBack(selectedName);
-    };
+    const handleDoneClick = () => callBack(selectedName);
 
     return (
         <div style={{ width: `85%`, marginTop: `16px`, marginBottom: `16px` }}>

@@ -6,10 +6,8 @@
   width: 600px;
   border-radius: 10px;
   align-self: center;
-  margin:10px auto;
+  margin: 10px auto;
   box-shadow: 0px 0px 10px 4px rgba(0, 0, 0, 0.6);
-  /* overflow: hidden; */
-  /* width: 500px; */
 }
 
 .header {
@@ -19,39 +17,34 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 20px;
-  /* border-radius: 10px; */
-  /* border-top-left-radius: 10px; */
-  /* border-top-right-radius: 10px; */
   background-color: rgba(25, 25, 25, 1);
+  /* borderRadius: `10px`, */
+  border-radius: 10px;
 }
 
 .header h3 {
   color: #000;
-  /* Change color dynamically with JavaScript or React state */
 }
 
 .content {
-  /* height: 200px; */
   background-color: rgba(25, 25, 25, 1);
   width: 100%;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
-  /* border-radius: 10px; */
   padding: 16px 0;
 }
 
 body {
-  background-color: rgba(117,117,117,1);
+  background-color: rgba(117, 117, 117, 1);
 }
 
 .title {
-  color: rgba(117, 117, 117, 1)  ;
+  color: rgba(117, 117, 117, 1);
 }
 
 .flipped-icon {
   font-size: 24px;
   color: rgba(117, 117, 117, 1) !important;
-  /* transform: scaleX(-1); */
 }
 
 .input_container {
@@ -77,30 +70,20 @@ body {
   font-size: 16px;
   margin: 0 16px;
   color: rgba(117, 117, 117, 1);
-
-  /* Your desired placeholder color */
 }
 
 .custom-input:focus {
   outline: none;
-  /* Remove the outline when input is focused */
-  /* background-color: red; */
   border-bottom: none;
-  /* Remove bottom border when input is focused */
 }
 
 .custom-input {
   color: white;
   background: transparent;
   border: none;
-  /* margin: 0; */
   margin: 0 16px;
-
   padding: 0;
   width: 75%;
-  /* background-color: red; */
-  /* border-bottom: 1px solid white; */
-  /* Add bottom border */
 }
 
 .under_line {
@@ -132,8 +115,6 @@ body {
 
 .generate_button:hover {
   cursor: pointer;
-  /* ; */
-
 }
 
 
@@ -142,7 +123,6 @@ body {
   display: flex;
   font-size: 13px;
   justify-content: center;
-  /* margin: 10px 10px 0px 10px; */
   padding: 0px 10px;
   border-radius: 10px;
   text-transform: uppercase;
@@ -179,5 +159,12 @@ summary::marker {
 details {
   overflow: hidden;
   border-radius: 10px;
-  /* overflow: hidden; */
+}
+
+.contentContainer {
+  /* margin: '5px auto',  */
+  margin: 5px auto;
+}
+.input_title_adjustment{
+  margin: 16px;
 }
