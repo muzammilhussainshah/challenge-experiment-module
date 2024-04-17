@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import './App.css'
 import { ExperimentalModuleCart } from './components/experimentalModuleCart.tsx'
 
-function App() {
+function App () {
   const [experiments, setExperiments] = useState([])
 
   const handleExperiment = (value) => {
@@ -28,9 +28,10 @@ function App() {
           key={index.toString()}
           experimentalModuleCartDataProps={{
             id: Object.keys(item)[0],
-            experiments: item[Object.keys(item)[0]],
+            experiments: item[Object.keys(item)[0]]
           }}
-          callback={handleExperiment} />
+          callback={handleExperiment}
+        />
       ))}
     </div>
   )
