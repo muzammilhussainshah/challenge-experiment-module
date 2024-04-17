@@ -1,18 +1,17 @@
 import React, { useEffect, useState } from 'react'
-// import { EMInput } from './input.tsx'
-import Module_input from './module_input.tsx'
-import { Module_Body } from './module_Body.tsx'
+
 import {
     handleCancel,
     handleDone,
     handleGenerate,
     handleInputChange,
     handleReset
-} from './callback.tsx'
-import { CreatedModuleList } from './createdModuleList.tsx'
-// import { CreatedModuleList } from './createdModuleList.tsx'
+} from './helper/callback.tsx'
+import Input from './input.tsx'
+import { ModuleWidgetBody } from './experiment-widget-body.tsx'
+import { IterationList } from './iteration-list.tsx'
 
-function Details({ contentProps }) {
+function ExperimentDetails({ contentProps }) {
     const { setIsLock, setIsOpen, isLock, experiments, callback, id, createModule, } = contentProps
     const [moduleName, setmoduleName] = useState<string>('')
     const [addIteration, setaddIteration] = useState<boolean>(createModule ? true : false)
@@ -24,11 +23,11 @@ function Details({ contentProps }) {
         else { setaddIteration(true) }
     }, [experiments])
 
-    const FOOTER_BUTTON_WITHOUT_ITERATION = [
+    const footerButtonWithoutIteration = [
         { title: 'Lock', callback: () => setIsLock(true) },
         { title: 'Reset', callback: () => handleReset(handleResetProps) },
         { title: '+ ADD iteration ', callback: () => setaddIteration(true) }]
-    const FOOTER_BUTTON_WITH_ITERATION = [
+    const footerButtonWithIteration = [
         { title: 'Cancel', callback: () => handleCancel(cancelProps) },
         { title: 'Done', callback: () => handleDone(commonLogicProps) }
     ]
@@ -42,18 +41,18 @@ function Details({ contentProps }) {
         experimentalModules, moduleName, setexperimentalModules, setmoduleName,
         setgenerateOne, callback, id, setaddIteration, createModule
     }
-    const module_Body_Props = {
-        handleGenerate, FOOTER_BUTTON_WITH_ITERATION, FOOTER_BUTTON_WITHOUT_ITERATION,
+    const moduleWidgetBodyProps = {
+        handleGenerate, footerButtonWithIteration, footerButtonWithoutIteration,
         addIteration, setgenerateOne, setaddIteration, isLock
     }
     const handleResetProps = { callback, id, setexperimentalModules, setaddIteration }
 
     return (
         <div className="content">
-            {experimentalModules.map((item, index) => <CreatedModuleList item={item} index={index} />)}
-            {addIteration && <Module_input moduleInputProps={moduleInputProps} />}
-            {!generateOne && <Module_Body module_Body_Props={module_Body_Props} />}
+            {experimentalModules.map((item, index) => <IterationList item={item} index={index} />)}
+            {addIteration && <Input moduleInputProps={moduleInputProps} />}
+            {!generateOne && <ModuleWidgetBody moduleWidgetBodyProps={moduleWidgetBodyProps} />}
         </div>
     )
 }
-export default Details
+export default ExperimentDetails

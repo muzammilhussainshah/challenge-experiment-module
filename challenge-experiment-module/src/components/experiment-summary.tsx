@@ -1,7 +1,8 @@
 import React from 'react'
+
 import { HiLockClosed, HiLockOpen } from 'react-icons/hi2'
 
-function Summary({ summaryProps }) {
+function ExperimentSummary({ summaryProps }) {
     const {
         setIsOpen,
         isOpen,
@@ -20,4 +21,4 @@ function Summary({ summaryProps }) {
     )
 }
 
-export default Summary
+export default ExperimentSummary

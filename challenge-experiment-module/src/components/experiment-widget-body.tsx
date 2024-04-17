@@ -1,16 +1,18 @@
 import React from 'react'
-import { GenerateModuleTitle } from './generateModuleTitle.tsx'
 
-export const Module_Body = ({ module_Body_Props }) => {
+import { GenerateModuleTitle } from './generate-module-title.tsx'
+
+export const ModuleWidgetBody = ({ moduleWidgetBodyProps }) => {
     const {
         handleGenerate,
         isLock,
         addIteration,
         setgenerateOne,
         setaddIteration,
-        FOOTER_BUTTON_WITH_ITERATION,
-        FOOTER_BUTTON_WITHOUT_ITERATION,
-    } = module_Body_Props
+        footerButtonWithIteration,
+        footerButtonWithoutIteration,
+    } = moduleWidgetBodyProps
+
     return (
         <>
             {addIteration &&
@@ -19,13 +21,13 @@ export const Module_Body = ({ module_Body_Props }) => {
                         handleGenerate(addIteration, setgenerateOne, setaddIteration)
                     }} />}
             <div className='footer_buttons_container'>
-                {addIteration ? FOOTER_BUTTON_WITH_ITERATION.map((item, index) => (
+                {addIteration ? footerButtonWithIteration.map((item, index) => (
                     <p
                         key={index.toString()}
                         className='input_title footer_buttons'
                         onClick={item.callback}>{item.title}</p>
                 )) :
-                    (!isLock && FOOTER_BUTTON_WITHOUT_ITERATION.map((item, index) => (
+                    (!isLock && footerButtonWithoutIteration.map((item, index) => (
                         <p
                             key={index.toString()}
                             className='input_title footer_buttons'

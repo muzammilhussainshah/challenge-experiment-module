@@ -1,7 +1,7 @@
 import React from 'react'
-import GenerateModule from './generateModule.tsx'
+import GenerateModule from './generate-module.tsx'
 
-function Module_input({ moduleInputProps, }) {
+function Input({ moduleInputProps, }) {
 
     const { generateOne,
         experimentalModules,
@@ -35,4 +35,4 @@ function Module_input({ moduleInputProps, }) {
     )
 }
 
-export default Module_input
+export default Input

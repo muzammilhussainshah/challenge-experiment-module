@@ -1,6 +1,7 @@
 import React from "react";
+
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
-export const CreatedModuleList = ({ item, index }: any) => {
+export const IterationList = ({ item, index }: any) => {
     return (
         <>
             <div key={index.toString()} className='input_container'>

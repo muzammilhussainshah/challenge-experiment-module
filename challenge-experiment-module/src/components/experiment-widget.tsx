@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import { HiLockClosed, HiLockOpen } from 'react-icons/hi2'
-import Details from './details.tsx';
-import Summary from './summary.tsx';
 
-export const ExperimentalModuleCart = ({
+import ExperimentDetails from './experiment-details.tsx';
+import ExperimentSummary from './experiment-summary.tsx';
+
+export const ExperimentWidget = ({
     callback,
     createModule,
     experimentalModuleCartDataProps }) => {
@@ -23,8 +23,8 @@ export const ExperimentalModuleCart = ({
     const summaryProps = { setIsOpen, isOpen, createModule, isLock, }
     return (
         <div className="container" >
-            <Summary summaryProps={summaryProps} />
-            {isOpen && <Details contentProps={contentProps} />}
+            <ExperimentSummary summaryProps={summaryProps} />
+            {isOpen && <ExperimentDetails contentProps={contentProps} />}
         </div >
     )
 }

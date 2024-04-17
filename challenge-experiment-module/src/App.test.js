@@ -2,8 +2,16 @@
 import React from 'react'
 import { render } from '@testing-library/react'
 import App from './App'
-import path from 'path' // Import path module
-import fs from 'fs' // Import file system module
+import path from 'path'
+import fs from 'fs'
+
+
+
+// MATCH SNAPSHOT
+test('renders App component', () => {
+  const { container } = render(<App />)
+  expect(container).toMatchSnapshot()
+})
 
 describe('App Component', () => {
   // RENDER APP WITHOUT CRASHING
