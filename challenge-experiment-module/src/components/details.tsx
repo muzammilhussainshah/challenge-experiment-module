@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { EMInput } from './EMInput.tsx'
+// import { EMInput } from './input.tsx'
 import Module_input from './module_input.tsx'
 import { Module_Body } from './module_Body.tsx'
 import {
@@ -9,8 +9,10 @@ import {
     handleInputChange,
     handleReset
 } from './callback.tsx'
+import { CreatedModuleList } from './createdModuleList.tsx'
+// import { CreatedModuleList } from './createdModuleList.tsx'
 
-function Content({ contentProps }) {
+function Details({ contentProps }) {
     const { setIsLock, setIsOpen, isLock, experiments, callback, id, createModule, } = contentProps
     const [moduleName, setmoduleName] = useState<string>('')
     const [addIteration, setaddIteration] = useState<boolean>(createModule ? true : false)
@@ -48,10 +50,10 @@ function Content({ contentProps }) {
 
     return (
         <div className="content">
-            {experimentalModules.map((item, index) => <EMInput item={item} index={index} />)}
+            {experimentalModules.map((item, index) => <CreatedModuleList item={item} index={index} />)}
             {addIteration && <Module_input moduleInputProps={moduleInputProps} />}
             {!generateOne && <Module_Body module_Body_Props={module_Body_Props} />}
         </div>
     )
 }
-export default Content
+export default Details

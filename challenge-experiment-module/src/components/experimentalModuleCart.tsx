@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { HiLockClosed, HiLockOpen } from 'react-icons/hi2'
-import Content from './content.tsx';
-import Summary from './Summary.tsx';
+import Details from './details.tsx';
+import Summary from './summary.tsx';
 
 export const ExperimentalModuleCart = ({
     callback,
@@ -24,7 +24,7 @@ export const ExperimentalModuleCart = ({
     return (
         <div className="container" >
             <Summary summaryProps={summaryProps} />
-            {isOpen && <Content contentProps={contentProps} />}
+            {isOpen && <Details contentProps={contentProps} />}
         </div >
     )
 }

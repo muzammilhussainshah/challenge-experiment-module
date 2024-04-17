@@ -35,16 +35,16 @@
 }
 
 body {
-  background-color: rgba(117, 117, 117, 1);
+  background-color: #757575;
 }
 
 .title {
-  color: rgba(117, 117, 117, 1);
+  color: #757575;
 }
 
 .flipped-icon {
   font-size: 24px;
-  color: rgba(117, 117, 117, 1) !important;
+  color: #757575 !important;
 }
 
 .input_container {
@@ -61,7 +61,7 @@ body {
   font-size: 16px;
   margin: 0 16px;
 
-  color: rgba(117, 117, 117, 1);
+  color: #757575;
   background-color: transparent;
 }
 
@@ -69,7 +69,7 @@ body {
   color: #999;
   font-size: 16px;
   margin: 0 16px;
-  color: rgba(117, 117, 117, 1);
+  color: #757575;
 }
 
 .custom-input:focus {
@@ -128,8 +128,8 @@ body {
   text-transform: uppercase;
   align-items: center;
 
-  border: 1px solid rgba(117, 117, 117, 1);
-  color: rgba(117, 117, 117, 1);
+  border: 1px solid #757575;
+  color: #757575;
 }
 
 .generate_module_buttons:hover {
@@ -162,10 +162,10 @@ details {
 }
 
 .contentContainer {
-  /* margin: '5px auto',  */
   margin: 5px auto;
 }
-.input_title_adjustment{
+
+.input_title_adjustment {
   margin: 16px;
 }
 
@@ -173,7 +173,16 @@ details {
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
 }
+
 .plane-border-bottom {
   border-bottom-left-radius: 0px;
   border-bottom-right-radius: 0px;
+}
+
+.input {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex: 1;
+  margin: 16px;
 }

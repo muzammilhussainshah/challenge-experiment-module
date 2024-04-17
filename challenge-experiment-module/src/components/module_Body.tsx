@@ -1,5 +1,5 @@
 import React from 'react'
-import { GenerateModuleTitle } from './GenerateModuleTitle.tsx'
+import { GenerateModuleTitle } from './generateModuleTitle.tsx'
 
 export const Module_Body = ({ module_Body_Props }) => {
     const {

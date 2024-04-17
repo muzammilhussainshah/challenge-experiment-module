@@ -1,5 +1,5 @@
 import React from 'react'
-import GenerateModule from './GenerateModule.tsx'
+import GenerateModule from './generateModule.tsx'
 
 function Module_input({ moduleInputProps, }) {
 
