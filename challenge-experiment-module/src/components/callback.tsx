@@ -11,7 +11,11 @@ export const handleGenerate = (
 }
 
 export const handleReset = (handleResetProps) => {
-    const { callback, id, setexperimentalModules, setaddIteration } = handleResetProps
+    const {
+        callback,
+        id,
+        setexperimentalModules,
+        setaddIteration } = handleResetProps
     if (id) callback({ [id]: [] })
     setexperimentalModules([])
     setaddIteration(true)
