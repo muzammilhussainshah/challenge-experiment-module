@@ -1,10 +1,23 @@
 import React from 'react'
 import GenerateModule from './GenerateModule.tsx'
 
-function Module_input({ generateOne, experimentalModules, moduleName, handleInputChange, handleGenerateModule, setgenerateOne }) {
+function Module_input({ moduleInputProps, }) {
+
+    const { generateOne,
+        experimentalModules,
+        moduleName,
+        setgenerateOne,
+        handleInputChange,
+        handleGenerateModule,
+    } = moduleInputProps
+
     return (
-        <div className='input_container' style={{ alignItems: !generateOne ? 'center' : 'flex-start' }}>
-            <p className='input_title input_title_adjustment' >EM-{experimentalModules.length + 1}</p>
+        <div
+            className='input_container'
+            style={{ alignItems: !generateOne ? 'center' : 'flex-start' }}>
+            <p
+                className='input_title input_title_adjustment'>EM-{experimentalModules.length + 1}
+            </p>
             {!generateOne ?
                 <input
                     value={moduleName}
@@ -14,7 +27,9 @@ function Module_input({ generateOne, experimentalModules, moduleName, handleInpu
                     className="custom-input"
                 />
                 :
-                <GenerateModule callBack={handleGenerateModule} removeCallBack={() => setgenerateOne(false)} />
+                <GenerateModule
+                    callBack={handleGenerateModule}
+                    removeCallBack={() => setgenerateOne(false)} />
             }
         </div>
     )
