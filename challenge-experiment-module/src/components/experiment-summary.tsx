@@ -15,8 +15,8 @@ function ExperimentSummary({ summaryProps }) {
             <h3 className='title' style={{ color: isOpen ? `white` : `#757575` }}>
                 {createModule ? 'Create Experiment Module' : `Experiment Module`}
             </h3>
-            {isLock ? <HiLockClosed className="flipped-icon" />
-                : isOpen && <HiLockOpen className="flipped-icon" />}
+            {createModule ? <></> : isLock ? <HiLockClosed className="flipped-icon" />
+                : <HiLockOpen className="flipped-icon" />}
         </div>
     )
 }
